@@ -112,6 +112,9 @@
     <EmbeddedResource Include="FormNuevoUsuario.resx">
       <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProducto.resx">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProductoIngresados.resx">
       <DependentUpon>FormProductoIngresados.cs</DependentUpon>
     </EmbeddedResource>
