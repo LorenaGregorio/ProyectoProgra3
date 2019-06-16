@@ -65,6 +65,7 @@
             // 
             this.txtcontraseña.Location = new System.Drawing.Point(176, 118);
             this.txtcontraseña.Name = "txtcontraseña";
+            this.txtcontraseña.PasswordChar = '☻';
             this.txtcontraseña.Size = new System.Drawing.Size(137, 20);
             this.txtcontraseña.TabIndex = 3;
             // 
@@ -99,7 +100,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

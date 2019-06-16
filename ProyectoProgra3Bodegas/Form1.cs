@@ -15,11 +15,12 @@ namespace ProyectoProgra3Bodegas
     {
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=BodegasAltoValyrioDB;Integrated Security=True");
-
+    
 
 
         public Form1()
         {
+      
             InitializeComponent();
         }
 
@@ -51,13 +52,29 @@ namespace ProyectoProgra3Bodegas
                     // este if realiza una compracion de tipo de usuairo
                     if (dt.Rows[0][1].ToString() == "1")
                     {
-                        FormMenu fm = new FormMenu();
-                    
-                        fm.Show();
-
+                        FormMenu menu = new FormMenu();
+                        menu.Show();
+                        menu.Text = "Adminstrador";
+                        //menu.Controls["For"]
+                        menu.Controls["label1"].Text = "Adminstrador";
+                        menu.Controls["button2"].Visible = false;
                         MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
                     }
 
+                    // este if realiza una compracion de tipo de usuairo
+                    if (dt.Rows[0][1].ToString() == "2")
+                    {
+                        FormMenu menu = new FormMenu();
+                        menu.Show();
+                        menu.Text = "Comprador";
+                        //menu.Controls["For"]
+                        menu.Controls["label1"].Text = "Comprador";
+                        menu.Controls["button2"].Visible = true;
+                        menu.Controls["button1"].Visible = false;
+                        menu.Controls["button3"].Visible = false;
+                        menu.Controls["button4"].Visible = false;
+                        MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
+                    }
                 }
                 else
                 {
@@ -84,6 +101,13 @@ namespace ProyectoProgra3Bodegas
         private void button1_Click(object sender, EventArgs e)
         {
             validarUsuario(this.txtusuario.Text, this.txtcontraseña.Text);
+            this.Hide();
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
