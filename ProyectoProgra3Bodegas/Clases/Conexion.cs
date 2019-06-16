@@ -12,6 +12,8 @@ namespace ProyectoProgra3Bodegas.Clases
     {
         //se creo la variable para la conexion con la base de datos
         SqlConnection conn;
+        SqlCommand cmd2;
+        SqlDataReader dr2;
 
         //metodo para la conexion
 
@@ -75,7 +77,21 @@ namespace ProyectoProgra3Bodegas.Clases
             this.Desconectar();
         }
 
+        //Combo de roll de usuario
+        public void ComboRoll(ComboBox cb)
+        {
+            //llamo al metodo conectar que me da la conexion con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from RollUsuarioTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdRollUsuario"].ToString() + "   " + dr2["Descripcion"].ToString());
 
+            }
+            dr2.Close();
+            this.Desconectar();
+        }
 
 
 

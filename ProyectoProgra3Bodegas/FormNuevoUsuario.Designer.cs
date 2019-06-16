@@ -1,6 +1,6 @@
 ﻿namespace ProyectoProgra3Bodegas
 {
-    partial class FormNuevoUsuario
+    partial class txtnombre
     {
         /// <summary>
         /// Required designer variable.
@@ -33,15 +33,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtnom = new System.Windows.Forms.TextBox();
+            this.txtapellido = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.txtcontra = new System.Windows.Forms.TextBox();
+            this.comboroll = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,18 +51,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombres";
+            this.label1.Text = "Nombre";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Apellidos";
+            this.label2.Text = "Apellido";
             // 
             // label3
             // 
@@ -77,9 +78,10 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(37, 252);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Tipo de Usuario";
+            this.label4.Text = "Roll Usuario";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -90,101 +92,112 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Contraseña";
             // 
-            // textBox1
+            // txtnom
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtnom.Location = new System.Drawing.Point(107, 34);
+            this.txtnom.Name = "txtnom";
+            this.txtnom.Size = new System.Drawing.Size(188, 20);
+            this.txtnom.TabIndex = 5;
             // 
-            // textBox2
+            // txtapellido
             // 
-            this.textBox2.Location = new System.Drawing.Point(165, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtapellido.Location = new System.Drawing.Point(107, 92);
+            this.txtapellido.Name = "txtapellido";
+            this.txtapellido.Size = new System.Drawing.Size(188, 20);
+            this.txtapellido.TabIndex = 6;
             // 
-            // textBox3
+            // txtusuario
             // 
-            this.textBox3.Location = new System.Drawing.Point(165, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtusuario.Location = new System.Drawing.Point(107, 147);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(188, 20);
+            this.txtusuario.TabIndex = 7;
             // 
-            // textBox4
+            // txtcontra
             // 
-            this.textBox4.Location = new System.Drawing.Point(165, 202);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(188, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtcontra.Location = new System.Drawing.Point(107, 202);
+            this.txtcontra.Name = "txtcontra";
+            this.txtcontra.Size = new System.Drawing.Size(188, 20);
+            this.txtcontra.TabIndex = 8;
             // 
-            // comboBox1
+            // comboroll
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Administrador",
-            "Comprador"});
-            this.comboBox1.Location = new System.Drawing.Point(165, 249);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(188, 21);
-            this.comboBox1.TabIndex = 9;
+            this.comboroll.FormattingEnabled = true;
+            this.comboroll.Location = new System.Drawing.Point(107, 249);
+            this.comboroll.Name = "comboroll";
+            this.comboroll.Size = new System.Drawing.Size(188, 21);
+            this.comboroll.TabIndex = 9;
+            this.comboroll.SelectedIndexChanged += new System.EventHandler(this.comboroll_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(40, 308);
+            this.button1.Location = new System.Drawing.Point(5, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 50);
             this.button1.TabIndex = 10;
             this.button1.Text = "CREAR USUARIO";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(156, 309);
+            this.button2.Location = new System.Drawing.Point(107, 296);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 50);
             this.button2.TabIndex = 11;
-            this.button2.Text = "ACTUALIZAR USUARIO";
+            this.button2.Text = "EDITAR USUARIO";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(276, 308);
+            this.button3.Location = new System.Drawing.Point(218, 295);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(77, 51);
             this.button3.TabIndex = 12;
             this.button3.Text = "BORRAR USUARIO";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(412, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(301, 34);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(410, 325);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(531, 312);
             this.dataGridView1.TabIndex = 13;
             // 
-            // FormNuevoUsuario
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(267, 228);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(28, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // txtnombre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 373);
+            this.ClientSize = new System.Drawing.Size(839, 355);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboroll);
+            this.Controls.Add(this.txtcontra);
+            this.Controls.Add(this.txtusuario);
+            this.Controls.Add(this.txtapellido);
+            this.Controls.Add(this.txtnom);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormNuevoUsuario";
+            this.Name = "txtnombre";
             this.Text = "FormNuevoUsuario";
+            this.Load += new System.EventHandler(this.FormNuevoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,14 +211,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtnom;
+        private System.Windows.Forms.TextBox txtapellido;
+        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.TextBox txtcontra;
+        private System.Windows.Forms.ComboBox comboroll;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
