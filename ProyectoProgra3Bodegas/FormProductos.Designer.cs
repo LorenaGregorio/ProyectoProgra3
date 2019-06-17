@@ -1,6 +1,6 @@
 ﻿namespace ProyectoProgra3Bodegas
 {
-    partial class FormProducto
+    partial class FormProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -76,7 +76,7 @@
             this.button1.Text = "-->";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // FormProducto
+            // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,8 +86,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "FormProducto";
-            this.Text = "FormProducto";
+            this.Name = "FormProductos";
+            this.Text = "FormProductos";
             this.ResumeLayout(false);
             this.PerformLayout();
 

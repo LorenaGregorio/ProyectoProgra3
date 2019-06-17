@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoProgra3Bodegas
 {
-    public partial class FormNuevoProducto : Form
+    public partial class FormProductos : Form
     {
-        public FormNuevoProducto()
+        public FormProductos()
         {
             InitializeComponent();
         }
