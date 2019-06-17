@@ -54,9 +54,9 @@ namespace ProyectoProgra3Bodegas
                     {
                         FormMenu menu = new FormMenu();
                         menu.Show();
-                        menu.Text = "Adminstrador";
+                        menu.Text = "Administrador";
                         //menu.Controls["For"]
-                        menu.Controls["label1"].Text = "Adminstrador";
+                        menu.Controls["label1"].Text = "Administrador";
                         menu.Controls["button2"].Visible = false;
                         MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
                     }
