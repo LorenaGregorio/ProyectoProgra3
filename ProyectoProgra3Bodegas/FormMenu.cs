@@ -29,7 +29,8 @@ namespace ProyectoProgra3Bodegas
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            FormProductos2 fproducto = new FormProductos2();
+            fproducto.Show();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)

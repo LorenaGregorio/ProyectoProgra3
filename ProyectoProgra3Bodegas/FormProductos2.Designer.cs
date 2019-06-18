@@ -56,6 +56,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,7 +184,7 @@
             // 
             // txtmarca
             // 
-            this.txtmarca.Location = new System.Drawing.Point(160, 67);
+            this.txtmarca.Location = new System.Drawing.Point(160, 59);
             this.txtmarca.Name = "txtmarca";
             this.txtmarca.Size = new System.Drawing.Size(148, 20);
             this.txtmarca.TabIndex = 13;
@@ -184,14 +192,15 @@
             // combcategoria
             // 
             this.combcategoria.FormattingEnabled = true;
-            this.combcategoria.Location = new System.Drawing.Point(160, 106);
+            this.combcategoria.Location = new System.Drawing.Point(160, 98);
             this.combcategoria.Name = "combcategoria";
             this.combcategoria.Size = new System.Drawing.Size(148, 21);
             this.combcategoria.TabIndex = 14;
+            this.combcategoria.SelectedIndexChanged += new System.EventHandler(this.combcategoria_SelectedIndexChanged);
             // 
             // txtprecio
             // 
-            this.txtprecio.Location = new System.Drawing.Point(160, 141);
+            this.txtprecio.Location = new System.Drawing.Point(160, 137);
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(148, 20);
             this.txtprecio.TabIndex = 15;
@@ -202,29 +211,31 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Si",
             "No"});
-            this.comboBox1.Location = new System.Drawing.Point(160, 182);
+            this.comboBox1.Location = new System.Drawing.Point(160, 174);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 16;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(160, 218);
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 224);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
             this.dateTimePicker1.TabIndex = 17;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // combodega
             // 
             this.combodega.FormattingEnabled = true;
-            this.combodega.Location = new System.Drawing.Point(160, 257);
+            this.combodega.Location = new System.Drawing.Point(160, 262);
             this.combodega.Name = "combodega";
             this.combodega.Size = new System.Drawing.Size(148, 21);
             this.combodega.TabIndex = 18;
+            this.combodega.SelectedIndexChanged += new System.EventHandler(this.combodega_SelectedIndexChanged);
             // 
             // txtpeso
             // 
-            this.txtpeso.Location = new System.Drawing.Point(160, 296);
+            this.txtpeso.Location = new System.Drawing.Point(160, 303);
             this.txtpeso.Name = "txtpeso";
             this.txtpeso.Size = new System.Drawing.Size(148, 20);
             this.txtpeso.TabIndex = 19;
@@ -232,14 +243,15 @@
             // combtipoempaque
             // 
             this.combtipoempaque.FormattingEnabled = true;
-            this.combtipoempaque.Location = new System.Drawing.Point(160, 329);
+            this.combtipoempaque.Location = new System.Drawing.Point(160, 334);
             this.combtipoempaque.Name = "combtipoempaque";
             this.combtipoempaque.Size = new System.Drawing.Size(148, 21);
             this.combtipoempaque.TabIndex = 20;
+            this.combtipoempaque.SelectedIndexChanged += new System.EventHandler(this.combtipoempaque_SelectedIndexChanged);
             // 
             // txtexistencia
             // 
-            this.txtexistencia.Location = new System.Drawing.Point(160, 368);
+            this.txtexistencia.Location = new System.Drawing.Point(160, 372);
             this.txtexistencia.Name = "txtexistencia";
             this.txtexistencia.Size = new System.Drawing.Size(148, 20);
             this.txtexistencia.TabIndex = 21;
@@ -247,10 +259,11 @@
             // combproveedor
             // 
             this.combproveedor.FormattingEnabled = true;
-            this.combproveedor.Location = new System.Drawing.Point(160, 403);
+            this.combproveedor.Location = new System.Drawing.Point(160, 411);
             this.combproveedor.Name = "combproveedor";
             this.combproveedor.Size = new System.Drawing.Size(148, 21);
             this.combproveedor.TabIndex = 22;
+            this.combproveedor.SelectedIndexChanged += new System.EventHandler(this.combproveedor_SelectedIndexChanged);
             // 
             // dateTimePicker2
             // 
@@ -283,7 +296,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 62);
             this.button3.TabIndex = 26;
-            this.button3.Text = "ELIMINAR PRODUCTO";
+            this.button3.Text = "BORRAR PRODUCTO";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -294,11 +307,85 @@
             this.dataGridView1.Size = new System.Drawing.Size(426, 279);
             this.dataGridView1.TabIndex = 27;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(315, 96);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 23);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "-->";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(315, 260);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(45, 23);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "-->";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(315, 332);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(45, 23);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "-->";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(315, 409);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(45, 23);
+            this.button7.TabIndex = 31;
+            this.button7.Text = "-->";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(132, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(22, 20);
+            this.textBox1.TabIndex = 32;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(132, 265);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(22, 20);
+            this.textBox2.TabIndex = 33;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(132, 332);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(22, 20);
+            this.textBox3.TabIndex = 34;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(132, 412);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(22, 20);
+            this.textBox4.TabIndex = 35;
+            // 
             // FormProductos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 493);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -329,6 +416,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormProductos2";
             this.Text = "FormProductos2";
+            this.Load += new System.EventHandler(this.FormProductos2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -365,5 +453,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

@@ -93,6 +93,80 @@ namespace ProyectoProgra3Bodegas.Clases
             this.Desconectar();
         }
 
+        //combo categoria formulario nuevos productos 
+        public void ComboCategoria (ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from CategoriaTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdCategoria"].ToString() + "  " + dr2["DescripcionCategoria"].ToString());
+            }
+            dr2.Close();
+            this.Desconectar();
+        }
+        
+        public void ComboBodega (ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from BodegaTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdBodega"].ToString() + "  " + dr2["NombreBodega"].ToString());
+            }
+            dr2.Close();
+            this.Desconectar();
+        }
+
+        public void ComboTipoEmpaque(ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from  TipodeEmpaqueTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdEmpaque"].ToString() + "  " + dr2["Descripcion"].ToString());
+            }
+            dr2.Close();
+            this.Desconectar();
+        }
+        public void ComboProveedor(ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from ProveedorTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdProveedor"].ToString() + "  " + dr2["Descripcion"].ToString());
+            }
+            dr2.Close();
+            this.Desconectar();
+        }
+        public void ComboUbicacion(ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from UbicacionTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdUbicacion"].ToString() + "  " + dr2["Departamento"].ToString());
+              
+            }
+         
+            dr2.Close();
+            this.Desconectar();
+        }
+
+
+
+
 
 
     }

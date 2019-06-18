@@ -15,8 +15,8 @@ namespace ProyectoProgra3Bodegas
     {
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=BodegasAltoValyrioDB;Integrated Security=True");
-    
 
+        int d;
 
         public Form1()
         {
@@ -43,8 +43,6 @@ namespace ProyectoProgra3Bodegas
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            try
-            {
 
                 // este if evalua si hay datos en la base de datos
                 if (dt.Rows.Count == 1)
@@ -75,39 +73,47 @@ namespace ProyectoProgra3Bodegas
                         menu.Controls["button4"].Visible = false;
                         MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
                     }
+                
                 }
-                else
-                {
-                    MessageBox.Show("Usuario / Contraseña Incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-
-            }
-            catch (Exception e)
+            if (dt.Rows.Count == 0)
             {
-                MessageBox.Show(e.Message);
+                d = 0;
+                MessageBox.Show("Usuario / Contraseña Incorrecto", "Error");
+                this.txtusuario.Clear();
+                this.txtcontraseña.Clear();
+                this.Show();
+                return;
+            }
 
-            }
-            finally
-            {
-                con.Close();
-            }
+            con.Close();
 
         }
 
-
-
         private void button1_Click(object sender, EventArgs e)
         {
+
             validarUsuario(this.txtusuario.Text, this.txtcontraseña.Text);
-            this.Hide();
-           
+            if (d == 0)
+            {
+                this.Show();
+            }
+            else
+            {
+                this.Hide();
+            }
+                
+      
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
     }
+
+
+
+
 }
