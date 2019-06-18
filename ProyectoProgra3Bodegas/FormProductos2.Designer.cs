@@ -280,6 +280,7 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "CREAR/AGREGAR PRODUCTO";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -335,6 +336,7 @@
             this.button6.TabIndex = 30;
             this.button6.Text = "-->";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -344,6 +346,7 @@
             this.button7.TabIndex = 31;
             this.button7.Text = "-->";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // textBox1
             // 

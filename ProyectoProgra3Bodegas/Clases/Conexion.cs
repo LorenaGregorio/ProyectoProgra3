@@ -164,6 +164,22 @@ namespace ProyectoProgra3Bodegas.Clases
             this.Desconectar();
         }
 
+        public void ComboEmpaque(ComboBox cb)
+        {
+            //llama al metodo para conectar con la base de datos
+            this.Conectar();
+            cmd2 = new SqlCommand("Select * from TipodeEmpaqueTBL", conn);
+            dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cb.Items.Add(dr2["IdEmpaque"].ToString() + "  " + dr2["Descripcion"].ToString());
+
+            }
+
+            dr2.Close();
+            this.Desconectar();
+        }
+
 
 
 

@@ -158,6 +158,23 @@ namespace ProyectoProgra3Bodegas
             fbodega.Show();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormTipoEmpaque fempaque = new FormTipoEmpaque();
+            fempaque.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FormProveedor fproveedor = new FormProveedor();
+            fproveedor.Show();
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 

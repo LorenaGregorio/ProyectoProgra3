@@ -89,11 +89,23 @@
     <Compile Include="FormProductos2.Designer.cs">
       <DependentUpon>FormProductos2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProveedor.Designer.cs">
+      <DependentUpon>FormProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReportes.Designer.cs">
       <DependentUpon>FormReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTipoEmpaque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipoEmpaque.Designer.cs">
+      <DependentUpon>FormTipoEmpaque.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTrasladoBodegas.cs">
       <SubType>Form</SubType>
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductos2.resx">
       <DependentUpon>FormProductos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProveedor.resx">
+      <DependentUpon>FormProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTipoEmpaque.resx">
+      <DependentUpon>FormTipoEmpaque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

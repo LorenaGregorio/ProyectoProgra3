@@ -40,13 +40,44 @@ namespace ProyectoProgra3Bodegas
             con.ComboUbicacion(comboBox1);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //La variable editar se agrega para que sea true
+            editar = true;
+
+            // se agregan las campos de los datos por columna como un vector
+            Id = int.Parse(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            textBox1.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            comboBox1.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // se agregan las campos de los datos por columna como un vector 
+            Id = int.Parse(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            var resultado = MessageBox.Show("¿Desea eliminar el dato", "Confirme si desea borrar ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                con.Conectar();
+                string consulta = "delete from BodegaTBL where IdBodega = '" + Id + "' ; ";
+                con.EjecutarSql(consulta);
+                this.ActualizarGrid();
+                con.Desconectar();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (editar)
             {
                 //Se realiza un update
                 con.Conectar();
-                string consulta = "update BodegaTBL set NombreBodega  = '" + textBox1.Text+ "', Ubicacion  =" + textBox2 + "    where IdUsuario = " + Id + " ;";
+                string consulta = "update BodegaTBL set NombreBodega  = '" + textBox1.Text+ "', Ubicacion  =" + comboBox1.Text + "    where IdBodega = " + Id + " ;";
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
                 con.Desconectar();
@@ -59,7 +90,7 @@ namespace ProyectoProgra3Bodegas
                 con.Conectar();
 
                 //Se crea una consulta para insertar los datos (Guardar)
-                string consulta = "insert into BodegaTBL (NombreBodega, Ubicacion) values ('" + textBox1.Text + "','" + textBox2.Text + "' );";
+                string consulta = "insert into BodegaTBL (NombreBodega, Ubicacion) values ('" + textBox1.Text + "','" + comboBox1.Text + "' );";
                 //con esta funcion ejecuto la consulta de arriba en codigo sql
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
