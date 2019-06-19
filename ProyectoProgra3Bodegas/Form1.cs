@@ -115,6 +115,10 @@ namespace ProyectoProgra3Bodegas
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

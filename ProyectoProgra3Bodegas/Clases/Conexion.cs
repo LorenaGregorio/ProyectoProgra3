@@ -130,7 +130,7 @@ namespace ProyectoProgra3Bodegas.Clases
             dr2 = cmd2.ExecuteReader();
             while (dr2.Read())
             {
-                cb.Items.Add(dr2["IdEmpaque"].ToString() + "  " + dr2["Descripcion"].ToString());
+                cb.Items.Add(dr2["IdEmpaque"].ToString() + "  " + dr2["DescripcionEm"].ToString());
             }
             dr2.Close();
             this.Desconectar();

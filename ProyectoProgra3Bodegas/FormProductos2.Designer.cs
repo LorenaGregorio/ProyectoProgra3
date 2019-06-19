@@ -64,6 +64,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtcodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,6 +199,7 @@
             this.combcategoria.Size = new System.Drawing.Size(148, 21);
             this.combcategoria.TabIndex = 14;
             this.combcategoria.SelectedIndexChanged += new System.EventHandler(this.combcategoria_SelectedIndexChanged);
+            this.combcategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combcategoria_KeyPress);
             // 
             // txtprecio
             // 
@@ -232,6 +235,7 @@
             this.combodega.Size = new System.Drawing.Size(148, 21);
             this.combodega.TabIndex = 18;
             this.combodega.SelectedIndexChanged += new System.EventHandler(this.combodega_SelectedIndexChanged);
+            this.combodega.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combodega_KeyPress);
             // 
             // txtpeso
             // 
@@ -248,6 +252,7 @@
             this.combtipoempaque.Size = new System.Drawing.Size(148, 21);
             this.combtipoempaque.TabIndex = 20;
             this.combtipoempaque.SelectedIndexChanged += new System.EventHandler(this.combtipoempaque_SelectedIndexChanged);
+            this.combtipoempaque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combtipoempaque_KeyPress);
             // 
             // txtexistencia
             // 
@@ -264,6 +269,7 @@
             this.combproveedor.Size = new System.Drawing.Size(148, 21);
             this.combproveedor.TabIndex = 22;
             this.combproveedor.SelectedIndexChanged += new System.EventHandler(this.combproveedor_SelectedIndexChanged);
+            this.combproveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combproveedor_KeyPress);
             // 
             // dateTimePicker2
             // 
@@ -376,11 +382,29 @@
             this.textBox4.Size = new System.Drawing.Size(22, 20);
             this.textBox4.TabIndex = 35;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(30, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Codigo";
+            // 
+            // txtcodigo
+            // 
+            this.txtcodigo.Location = new System.Drawing.Point(160, 2);
+            this.txtcodigo.Name = "txtcodigo";
+            this.txtcodigo.Size = new System.Drawing.Size(148, 20);
+            this.txtcodigo.TabIndex = 37;
+            // 
             // FormProductos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 493);
+            this.Controls.Add(this.txtcodigo);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -464,5 +488,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtcodigo;
     }
 }

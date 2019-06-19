@@ -77,7 +77,7 @@ namespace ProyectoProgra3Bodegas
             {
                 //Se realiza un update
                 con.Conectar();
-                string consulta = "update BodegaTBL set NombreBodega  = '" + textBox1.Text+ "', Ubicacion  =" + comboBox1.Text + "    where IdBodega = " + Id + " ;";
+                string consulta = "update BodegaTBL set NombreBodega  = '" + textBox1.Text+ "', Ubicacion  =" + textBox2.Text + "    where IdBodega = " + Id + " ;";
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
                 con.Desconectar();
@@ -90,7 +90,7 @@ namespace ProyectoProgra3Bodegas
                 con.Conectar();
 
                 //Se crea una consulta para insertar los datos (Guardar)
-                string consulta = "insert into BodegaTBL (NombreBodega, Ubicacion) values ('" + textBox1.Text + "','" + comboBox1.Text + "' );";
+                string consulta = "insert into BodegaTBL (NombreBodega, Ubicacion) values ('" + textBox1.Text + "','" + textBox2.Text + "' );";
                 //con esta funcion ejecuto la consulta de arriba en codigo sql
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
