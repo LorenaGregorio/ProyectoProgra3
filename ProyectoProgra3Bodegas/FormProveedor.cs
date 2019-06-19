@@ -44,7 +44,7 @@ namespace ProyectoProgra3Bodegas
             {
                 //Se realiza un update
                 con.Conectar();
-                string consulta = "update ProveedorTBL set Descripcion = '" + textBox1.Text + "', Direccion ='" + textBox2.Text + "'    where IdUsuario = " + Id + " ;";
+                string consulta = "update ProveedorTBL set Descripcion = '" + textBox1.Text + "', Direccion ='" + textBox2.Text + "'    where IdProveedor = " + Id + " ;";
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
                 con.Desconectar();

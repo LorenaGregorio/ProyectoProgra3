@@ -16,7 +16,8 @@ namespace ProyectoProgra3Bodegas
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=BodegasAltoValyrioDB;Integrated Security=True");
 
-        int d;
+
+        int z =0;
 
         public Form1()
         {
@@ -27,14 +28,14 @@ namespace ProyectoProgra3Bodegas
 
         public void validarUsuario(string USUARIO, string CONTRASEÑA)
         {
-            con.Open();
 
+           
+            con.Open();
+                                   
             // se crea consulta
             SqlCommand cmd = new SqlCommand("Select Nombre , RollUsuario FROM UsuarioTBL  WHERE Usuario = @user AND Contraseña = @pass ", con);
-
-
+            
             //se ejecuta comando para la evaluacion de la consulta con los textbox
-
             cmd.Parameters.AddWithValue("user", USUARIO);
             cmd.Parameters.AddWithValue("pass", CONTRASEÑA);
             // la siguiente linea de codigo realiza una adatacion de los datos extraidos e ingresado
@@ -44,47 +45,48 @@ namespace ProyectoProgra3Bodegas
             da.Fill(dt);
 
 
+                   
                 // este if evalua si hay datos en la base de datos
-                if (dt.Rows.Count == 1)
-                {
+            if (dt.Rows.Count == 1)
+            {
                     // este if realiza una compracion de tipo de usuairo
                     if (dt.Rows[0][1].ToString() == "1")
-                    {
-                        FormMenu menu = new FormMenu();
-                        menu.Show();
-                        menu.Text = "Administrador";
-                        //menu.Controls["For"]
-                        menu.Controls["label1"].Text = "Administrador";
-                        menu.Controls["button2"].Visible = false;
-                        MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
-                    }
-
-                    // este if realiza una compracion de tipo de usuairo
-                    if (dt.Rows[0][1].ToString() == "2")
-                    {
-                        FormMenu menu = new FormMenu();
-                        menu.Show();
-                        menu.Text = "Comprador";
-                        //menu.Controls["For"]
-                        menu.Controls["label1"].Text = "Comprador";
-                        menu.Controls["button2"].Visible = true;
-                        menu.Controls["button1"].Visible = false;
-                        menu.Controls["button3"].Visible = false;
-                        menu.Controls["button4"].Visible = false;
-                        MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
-                    }
-                
+                {
+                    FormMenu menu = new FormMenu();
+                    menu.Show();
+                    menu.Text = "Administrador";
+                    //menu.Controls["For"]
+                    menu.Controls["label1"].Text = "Administrador";
+                    menu.Controls["button2"].Visible = false;
+                    MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
+                    z = 1;
                 }
-            if (dt.Rows.Count == 0)
-            {
-                d = 0;
-                MessageBox.Show("Usuario / Contraseña Incorrecto", "Error");
-                this.txtusuario.Clear();
-                this.txtcontraseña.Clear();
-                this.Show();
-                return;
-            }
 
+                // este if realiza una compracion de tipo de usuairo
+                if (dt.Rows[0][1].ToString() == "2")
+                {
+                    FormMenu menu = new FormMenu();
+                    menu.Show();
+                    menu.Text = "Comprador";
+                    //menu.Controls["For"]
+                    menu.Controls["label1"].Text = "Comprador";
+                    menu.Controls["button2"].Visible = true;
+                    menu.Controls["button1"].Visible = false;
+                    menu.Controls["button3"].Visible = false;
+                    menu.Controls["button4"].Visible = false;
+                    MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
+                    z = 1;
+                }
+
+            }
+            else
+            {
+                //MessageBox.Show("Usuario / Contraseña Incorrecto", "Error");
+                //con.Close();
+                z = 0;
+            }                       
+                    this.txtusuario.Clear();
+                    this.txtcontraseña.Clear();
             con.Close();
 
         }
@@ -93,17 +95,19 @@ namespace ProyectoProgra3Bodegas
         {
 
             validarUsuario(this.txtusuario.Text, this.txtcontraseña.Text);
-            if (d == 0)
+
+            if (z == 0)
             {
-                this.Show();
+                MessageBox.Show("Usuario / Contraseña Incorrecto", "Error");
+                con.Close();
             }
-            else
+            if (z == 1)
             {
                 this.Hide();
+
             }
-                
-      
-          
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
