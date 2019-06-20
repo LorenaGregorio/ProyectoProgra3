@@ -71,6 +71,20 @@ namespace ProyectoProgra3Bodegas
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormUbicacion fubicacion = new FormUbicacion();
+            fubicacion.Show();
+            //ComboUbicacion.Items.Clear();
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            comboBox1.Items.Clear();
+
+            con.ComboUbicacion(comboBox1);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (editar)

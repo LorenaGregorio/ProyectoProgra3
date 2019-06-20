@@ -180,6 +180,9 @@ namespace ProyectoProgra3Bodegas.Clases
             this.Desconectar();
         }
 
+       
+
+
 
 
 

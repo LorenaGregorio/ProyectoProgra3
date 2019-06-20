@@ -45,13 +45,11 @@
             this.combcategoria = new System.Windows.Forms.ComboBox();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.combodega = new System.Windows.Forms.ComboBox();
             this.txtpeso = new System.Windows.Forms.TextBox();
             this.combtipoempaque = new System.Windows.Forms.ComboBox();
             this.txtexistencia = new System.Windows.Forms.TextBox();
             this.combproveedor = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -66,6 +64,10 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtcodigo = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -219,14 +221,6 @@
             this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 16;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(160, 224);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 17;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // combodega
             // 
             this.combodega.FormattingEnabled = true;
@@ -271,13 +265,6 @@
             this.combproveedor.SelectedIndexChanged += new System.EventHandler(this.combproveedor_SelectedIndexChanged);
             this.combproveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combproveedor_KeyPress);
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(160, 443);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 23;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(393, 41);
@@ -296,6 +283,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "EDITAR PRODUCTO";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -305,6 +293,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "BORRAR PRODUCTO";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
@@ -393,16 +382,52 @@
             // 
             // txtcodigo
             // 
-            this.txtcodigo.Location = new System.Drawing.Point(160, 2);
+            this.txtcodigo.Location = new System.Drawing.Point(160, 3);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(148, 20);
             this.txtcodigo.TabIndex = 37;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-mm-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 217);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 38;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "yyyy-mm-dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(160, 449);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 39;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(160, 217);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(148, 20);
+            this.textBox5.TabIndex = 40;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(160, 446);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(148, 20);
+            this.textBox6.TabIndex = 41;
             // 
             // FormProductos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 493);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtcodigo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox4);
@@ -417,13 +442,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.combproveedor);
             this.Controls.Add(this.txtexistencia);
             this.Controls.Add(this.combtipoempaque);
             this.Controls.Add(this.txtpeso);
             this.Controls.Add(this.combodega);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtprecio);
             this.Controls.Add(this.combcategoria);
@@ -469,13 +492,11 @@
         private System.Windows.Forms.ComboBox combcategoria;
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox combodega;
         private System.Windows.Forms.TextBox txtpeso;
         private System.Windows.Forms.ComboBox combtipoempaque;
         private System.Windows.Forms.TextBox txtexistencia;
         private System.Windows.Forms.ComboBox combproveedor;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -490,5 +511,9 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtcodigo;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
     }
 }
