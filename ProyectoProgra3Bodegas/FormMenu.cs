@@ -48,5 +48,19 @@ namespace ProyectoProgra3Bodegas
             FormReportes reporte = new FormReportes();
             reporte.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                FormBitacora bitacora = new FormBitacora();
+                bitacora.Show();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormAltayBajaProducto AltaBaja = new FormAltayBajaProducto();
+            AltaBaja.Show();
+        }
     }
 }

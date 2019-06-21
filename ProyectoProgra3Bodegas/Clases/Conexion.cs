@@ -77,6 +77,35 @@ namespace ProyectoProgra3Bodegas.Clases
             this.Desconectar();
         }
 
+
+
+        public void ActualizarGrid2(DataGridView dg, string consulta)
+        {
+            //llamo al metodo conectar que me da la conexion con la base de datos
+            this.Conectar();
+
+            //se Crea una referencia para los datos 
+            //Para que se tome los datos de la base de datos y los jale en datagridview
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+
+
+            //se crea un adaptador para los datos de la base de datos
+            SqlDataAdapter da = new SqlDataAdapter(consulta, conn);
+
+
+
+            //Se realiza una funcion de llenado para la tabla del datagridview
+            da.Fill(ds, "AltaBajaProductoTBL");
+
+            //se agregan las propiedades al datagridview
+            dg.DataSource = ds;
+
+            //esta fucnion va a traer todo el contenido de la tabla que mecionamos arriba
+            dg.DataMember = "AltaBajaProductoTBL";
+
+            this.Desconectar();
+        }
         //Combo de roll de usuario
         public void ComboRoll(ComboBox cb)
         {

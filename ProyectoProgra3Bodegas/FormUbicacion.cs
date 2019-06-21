@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,23 +79,59 @@ namespace ProyectoProgra3Bodegas
             textBox2.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
             
         }
+        SqlConnection con2 = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=BodegasAltoValyrioDB;Integrated Security=True");
+
+
+     
 
         private void button3_Click(object sender, EventArgs e)
         {
             Id = int.Parse(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            var resultado = MessageBox.Show("¿Desea eliminar el dato", "Confirme si desea borrar ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+
+
+
+            con2.Open();
+
+            // se crea consulta
+            SqlCommand cmd = new SqlCommand("Select  IdUbicacion FROM BodegaTBL  WHERE IdUbicacion = @ubi ", con2);
+
+            //se ejecuta comando para la evaluacion de la consulta con los textbox
+            cmd.Parameters.AddWithValue("ubi", Id);
+
+            // la siguiente linea de codigo realiza una adatacion de los datos extraidos e ingresado
+            //para generar como una tabla virtual para que se valla a buscar los datos segun la consulta 
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            MessageBox.Show("No " + Id);
+
+
+            // este if evalua si hay datos en la base de datos
+            if ((dt.Rows.Count == 1))
             {
-                con.Conectar();
-                string consulta = "delete from UbicacionTBL where IdUbicacion = '" + Id + "' ; ";
-                con.EjecutarSql(consulta);
-                this.ActualizarGrid();
-                con.Desconectar();
+
+
+                MessageBox.Show("No se puede eliminar la Ubicaicon ");
             }
             else
             {
-                return;
+                var resultado = MessageBox.Show("¿Desea eliminar el dato", "Confirme si desea borrar ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    con.Conectar();
+                    string consulta = "delete from UbicacionTBL where IdUbicacion = '" + Id + "' ; ";
+                    con.EjecutarSql(consulta);
+                    this.ActualizarGrid();
+                    con.Desconectar();
+                }
+                else
+                {
+                    return;
+                }
             }
+          
+                                                                            
+             
         }
     }
 }

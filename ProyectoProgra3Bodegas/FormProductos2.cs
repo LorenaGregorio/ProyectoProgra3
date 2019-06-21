@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,16 @@ namespace ProyectoProgra3Bodegas
     public partial class FormProductos2 : Form
     {
 
+        SqlConnection con2 = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=BodegasAltoValyrioDB;Integrated Security=True");
+
+
         Conexion con = new Conexion();
 
         //se declara una variable de tipo boleana que sirve para indicar si el usuario presiono el boton editar
         bool editar;
         int Id;
         string cadena, car, numero;
-
+        int z;
      
 
 
@@ -28,6 +32,84 @@ namespace ProyectoProgra3Bodegas
         {
             InitializeComponent();
         }
+
+
+        public void ValidarProducto(string CODIGO, string NOMBREPRODUCTO)
+        {
+
+
+            con2.Open();
+
+            // se crea consulta
+            SqlCommand cmd = new SqlCommand("Select  NombreProducto FROM ProductoTBL  WHERE Codigo = @cod ", con2); 
+
+            //se ejecuta comando para la evaluacion de la consulta con los textbox
+            cmd.Parameters.AddWithValue("cod", CODIGO);
+            
+            // la siguiente linea de codigo realiza una adatacion de los datos extraidos e ingresado
+            //para generar como una tabla virtual para que se valla a buscar los datos segun la consulta 
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+
+
+            // este if evalua si hay datos en la base de datos
+            if ((dt.Rows.Count == 1) && (dt.Rows[0][0].ToString() != NOMBREPRODUCTO) )
+            {
+
+             
+                    MessageBox.Show("Ingrese otro Codigo ");
+            }
+           else
+            {
+
+                if (editar)
+                {
+                    //Se realiza un update
+                    con.Conectar();
+                    string consulta = "update ProductoTBL set  Codigo ='" + txtcodigo.Text + "', NombreProducto ='" + txtnombreproducto.Text + "', Marca ='" + txtmarca.Text + "', " +
+                        "Categoria ='" + textBox1.Text + "', Precio = '" + txtprecio.Text + "', Refrigerado = '" + comboBox1.Text + "', " +
+                        " FechadeCaducidad = '" + textBox5.Text + "', Bodega = '" + textBox2.Text + "', Peso = '" + txtprecio.Text + "', " +
+                        "TipodeEmpaque = '" + textBox3.Text + "', Existencia = '" + txtexistencia.Text + "', Proveedor = '" + textBox4.Text + "', FechaIngreso = '" + textBox6.Text + "'  where IdProducto = " + Id + " ;";
+                    con.EjecutarSql(consulta);
+                    this.ActualizarGrid();
+                    con.Desconectar();
+
+                    editar = false;
+
+                }
+                else
+                {
+
+                    con.Conectar();
+
+                    //Se crea una consulta para insertar los datos (Guardar)
+
+                    string consulta = "INSERT INTO ProductoTBL (Codigo ,NombreProducto ,Marca,Categoria ,Precio,Refrigerado,FechadeCaducidad,Bodega,Peso,TipodeEmpaque,Existencia,Proveedor,FechaIngreso) VALUES ('" + txtcodigo.Text + "', '" + txtnombreproducto.Text + "', '" + txtmarca.Text + "', " + Convert.ToInt32(textBox1.Text) + ", " + Convert.ToDouble(txtprecio.Text) + ", '" + comboBox1.SelectedItem + "', '" + textBox5.Text + "', " + Convert.ToInt32(textBox2.Text) + ", '" + txtpeso.Text + "', " + Convert.ToInt32(textBox3.Text) + ", '" + txtexistencia.Text + "', " + Convert.ToInt32(textBox4.Text) + ", '" + textBox6.Text + "');";
+
+
+
+                    ////con esta funcion ejecuto la consulta de arriba en codigo sql
+                    con.EjecutarSql(consulta);
+                    this.ActualizarGrid();
+                    con.Desconectar();
+                }
+
+                con2.Close();
+                    MessageBox.Show("Producto aceptado");
+                    z = 0;
+                
+                    
+              
+            }
+           
+            con2.Close();
+
+        }
+
+       
+
 
         private void combcategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -176,37 +258,7 @@ namespace ProyectoProgra3Bodegas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (editar)
-            {
-                //Se realiza un update
-                con.Conectar();
-                string consulta = "update ProductoTBL set  Codigo ='" + txtcodigo.Text + "', NombreProducto ='" + txtnombreproducto.Text + "', Marca ='" + txtmarca.Text + "', " +
-                    "Categoria ='" + textBox1.Text + "', Precio = '" + txtprecio.Text + "', Refrigerado = '" + comboBox1.Text + "', " +
-                    " FechadeCaducidad = '" + textBox5.Text + "', Bodega = '" + textBox2.Text + "', Peso = '" + txtprecio.Text + "', " +
-                    "TipodeEmpaque = '" + textBox3.Text + "', Existencia = '" + txtexistencia.Text + "', Proveedor = '" + textBox4.Text + "', FechaIngreso = '" + textBox6.Text + "'  where IdProducto = " + Id + " ;";
-                con.EjecutarSql(consulta);
-                this.ActualizarGrid();
-                con.Desconectar();
-
-                editar = false;
-
-            }
-            else
-            {
-
-                con.Conectar();
-            
-                //Se crea una consulta para insertar los datos (Guardar)
-
-            string consulta = "INSERT INTO ProductoTBL (Codigo ,NombreProducto ,Marca,Categoria ,Precio,Refrigerado,FechadeCaducidad,Bodega,Peso,TipodeEmpaque,Existencia,Proveedor,FechaIngreso) VALUES ('"+txtcodigo.Text+"', '"+txtnombreproducto.Text+"', '"+txtmarca.Text+"', "+Convert.ToInt32(textBox1.Text) +", "+Convert.ToDouble(txtprecio.Text)+", '"+comboBox1.SelectedItem+"', '"+ textBox5.Text + "', "+Convert.ToInt32(textBox2.Text)+", '"+txtpeso.Text+"', "+Convert.ToInt32(textBox3.Text)+", '"+txtexistencia.Text+"', "+Convert.ToInt32(textBox4.Text)+", '"+textBox6.Text+"');";
-
-
-             
-            ////con esta funcion ejecuto la consulta de arriba en codigo sql
-                con.EjecutarSql(consulta);
-                this.ActualizarGrid();
-                con.Desconectar();
-            }
+            ValidarProducto(txtcodigo.Text, txtnombreproducto.Text);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -294,6 +346,12 @@ namespace ProyectoProgra3Bodegas
             {
                 return;
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ValidarProducto(txtcodigo.Text, txtnombreproducto.Text);
+
         }
 
         public void ActualizarGrid()

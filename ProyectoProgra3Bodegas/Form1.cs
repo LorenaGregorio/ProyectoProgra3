@@ -74,6 +74,8 @@ namespace ProyectoProgra3Bodegas
                     menu.Controls["button1"].Visible = false;
                     menu.Controls["button3"].Visible = false;
                     menu.Controls["button4"].Visible = false;
+                    menu.Controls["button6"].Visible = false;
+
                     MessageBox.Show("Bienvenido " + dt.Rows[0][0].ToString());
                     z = 1;
                 }
