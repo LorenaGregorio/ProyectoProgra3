@@ -65,12 +65,6 @@
     <Compile Include="FormAltayBajaProducto.Designer.cs">
       <DependentUpon>FormAltayBajaProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBitacora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBitacora.Designer.cs">
-      <DependentUpon>FormBitacora.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAltayBajaProducto.resx">
       <DependentUpon>FormAltayBajaProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBitacora.resx">
-      <DependentUpon>FormBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBodega.resx">
       <DependentUpon>FormBodega.cs</DependentUpon>

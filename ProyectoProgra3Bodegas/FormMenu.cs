@@ -51,10 +51,7 @@ namespace ProyectoProgra3Bodegas
 
         private void button4_Click(object sender, EventArgs e)
         {
-            {
-                FormBitacora bitacora = new FormBitacora();
-                bitacora.Show();
-            }
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
