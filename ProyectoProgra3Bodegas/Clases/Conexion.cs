@@ -208,8 +208,9 @@ namespace ProyectoProgra3Bodegas.Clases
             dr2.Close();
             this.Desconectar();
         }
+     
 
-       
+
 
 
 

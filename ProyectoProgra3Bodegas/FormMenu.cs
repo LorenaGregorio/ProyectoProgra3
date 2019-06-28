@@ -59,5 +59,11 @@ namespace ProyectoProgra3Bodegas
             FormAltayBajaProducto AltaBaja = new FormAltayBajaProducto();
             AltaBaja.Show();
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            FormTraslados traslados = new FormTraslados();
+            traslados.Show();
+        }
     }
 }

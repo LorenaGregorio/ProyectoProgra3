@@ -44,7 +44,7 @@ namespace ProyectoProgra3Bodegas
             {
                 //Se realiza un update
                 con.Conectar();
-                string consulta = "update TipodeEmpaqueTBL set Descripcion = '" + textBox1.Text + "'    where IdEmpaque = " + Id + " ;";
+                string consulta = "update TipodeEmpaqueTBL set DescripcionEm = '" + textBox1.Text + "'    where IdEmpaque = " + Id + " ;";
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
                 con.Desconectar();
@@ -57,7 +57,7 @@ namespace ProyectoProgra3Bodegas
                 con.Conectar();
 
                 //Se crea una consulta para insertar los datos (Guardar)
-                string consulta = "insert into TipodeEmpaqueTBL (Descripcion) values ('" + textBox1.Text + "' );";
+                string consulta = "insert into TipodeEmpaqueTBL (DescripcionEm) values ('" + textBox1.Text + "' );";
                 //con esta funcion ejecuto la consulta de arriba en codigo sql
                 con.EjecutarSql(consulta);
                 this.ActualizarGrid();
